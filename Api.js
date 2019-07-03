@@ -2,6 +2,7 @@ class Api{
     
     constructor(){
         this.request = require('request');
+        this.Player = require('./Player.js')
     }
     
     // Need to filter Ratings by highest, need to allow callback with less than 4 parameters properly.
@@ -10,8 +11,8 @@ class Api{
             this.request('http://sc2unmasked.com/API/Player?q=' + profile, { json: true }, (err, res, body) => {
             if (err) { console.log(err); }
             if(body !== undefined){
-              this.HighestMMR(body, (mmr) => {
-                callback(mmr);
+              this.HighestMMR(body, (player) => {
+                callback(player);
               });
             }
               
@@ -20,8 +21,8 @@ class Api{
             this.request('http://sc2unmasked.com/API/Player?q=' + profile + '&server=' + server, { json: true }, (err, res, body) => {
             if (err) { console.log(err); }
             if(body !== undefined){
-              this.HighestMMR(body, (mmr) => {
-                callback(mmr);
+              this.HighestMMR(body, (player) => {
+                callback(player);
               });
             }
           });
@@ -29,8 +30,8 @@ class Api{
             this.request('http://sc2unmasked.com/API/Player?q=' + profile + '&server=' + server + '&race=' + race, { json: true }, (err, res, body) => {
             if (err) { console.log(err); }
             if(body !== undefined){
-              this.HighestMMR(body, (mmr) => {
-                callback(mmr);
+              this.HighestMMR(body, (player) => {
+                callback(player);
               });
             }
           });
@@ -38,13 +39,19 @@ class Api{
     }
 
     async HighestMMR(data, callback){
-      var mmr = 0;
+      var name, race, mmr = 0, league, server;
+      var player;
       for (var i = 0; i < data.players.length; i++){
           if(data.players[i].mmr > mmr){
-              mmr = data.players [i].mmr;
+            name = data.players[i].display_name;
+            race = data.players[i].race;
+            mmr = data.players[i].mmr;
+            league = data.players[i].league;
+            server = data.players[i].server;
+            player = new this.Player(name, race, mmr, league, server);
           }
       }
-      callback(mmr);
+      callback(player);
   }
 
 }
