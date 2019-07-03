@@ -1,5 +1,6 @@
 const ClientHolder = require('./ClientHolder');
-const token = "";
+const Config = require('./Config.json');
+const token = Config.Discord.Token;
 const api = require('./Api');
 
 var client;
@@ -16,7 +17,6 @@ client.on('message', (msg) => {
     console.log(msg.channel.name);
     console.log(message.join(" "));
     if (message[0] === '!mmr'){
-        console.log(message.length);
         if(message.length === 1){
             client.channels.find(x => x.name === msg.channel.name).send("Search using !mmr name server race");
         }
