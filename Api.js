@@ -6,9 +6,8 @@ class Api{
     
     // Need to filter Ratings by highest, need to allow callback with less than 4 parameters properly.
     async GetProfile(profile, server, race, callback){
-        console.log('http://sc2unmasked.com/API/Player?name=' + profile + '?server=' + server + '&race=' + race);
         if (server === undefined && race === undefined) { // a, b are undefined
-            this.request('http://sc2unmasked.com/API/Player?name=' + profile, { json: true }, (err, res, body) => {
+            this.request('http://sc2unmasked.com/API/Player?q=' + profile, { json: true }, (err, res, body) => {
             if (err) { console.log(err); }
             if(body !== undefined){
               this.HighestMMR(body, (mmr) => {
@@ -18,7 +17,7 @@ class Api{
               
           });
         } else if (server !== undefined && race === undefined) { // b is undefined
-            this.request('http://sc2unmasked.com/API/Player?name=' + profile + '?server=' + server, { json: true }, (err, res, body) => {
+            this.request('http://sc2unmasked.com/API/Player?q=' + profile + '&server=' + server, { json: true }, (err, res, body) => {
             if (err) { console.log(err); }
             if(body !== undefined){
               this.HighestMMR(body, (mmr) => {
@@ -27,7 +26,7 @@ class Api{
             }
           });
         } else if (server !== undefined && race !== undefined) { // both have values
-            this.request('http://sc2unmasked.com/API/Player?name=' + profile + '?server=' + server + '&race=' + race, { json: true }, (err, res, body) => {
+            this.request('http://sc2unmasked.com/API/Player?q=' + profile + '&server=' + server + '&race=' + race, { json: true }, (err, res, body) => {
             if (err) { console.log(err); }
             if(body !== undefined){
               this.HighestMMR(body, (mmr) => {
