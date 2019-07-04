@@ -23,10 +23,9 @@ client.on('message', (msg) => {
         if(message.length >= 2){
             (async() => {
                 api.GetProfile(message[1], message[2], message[3], (player) => {
-                    if(mmr !== 0) {client.channels.find(x => x.name === msg.channel.name).send(player.mmr); }
+                    client.channels.find(x => x.name === msg.channel.name).send(player.toString());
                 });
             })();
-            
         }
     }
 });

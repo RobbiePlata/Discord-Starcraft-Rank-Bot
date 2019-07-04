@@ -2,7 +2,6 @@ class Api{
     
     constructor(){
         this.request = require('request');
-        this.Player = require('./Player.js')
     }
     
     // Need to filter Ratings by highest, need to allow callback with less than 4 parameters properly.
@@ -39,16 +38,20 @@ class Api{
     }
 
     async HighestMMR(data, callback){
-      var name, race, mmr = 0, league, server;
-      var player;
+      var mmr = 0;
       for (var i = 0; i < data.players.length; i++){
           if(data.players[i].mmr > mmr){
-            name = data.players[i].display_name;
-            race = data.players[i].race;
-            mmr = data.players[i].mmr;
-            league = data.players[i].league;
-            server = data.players[i].server;
-            player = new this.Player(name, race, mmr, league, server);
+            try{
+              this.Player = require('./Player')
+              var name = data.players[i].display_name;
+              var race = data.players[i].race;
+              mmr = data.players[i].mmr;
+              var league = data.players[i].league;
+              var server = data.players[i].server;
+              var player = new this.Player(name, race, mmr, league, server);
+            } catch (ex){
+              console.log(ex);
+            }
           }
       }
       callback(player);
