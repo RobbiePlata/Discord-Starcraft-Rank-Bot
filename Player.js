@@ -5,8 +5,6 @@ class Player{
         this.mmr = mmr;
         this.league = league;
         this.server = server;
-
-        
     }
 
     GetName(){
