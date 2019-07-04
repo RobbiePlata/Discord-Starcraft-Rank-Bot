@@ -9,7 +9,8 @@ class Api{
         if (server === undefined && race === undefined) { // a, b are undefined
             this.request('http://sc2unmasked.com/API/Player?q=' + profile, { json: true }, (err, res, body) => {
             if (err) { console.log(err); }
-            if(body !== undefined){
+            console.log(body.players.length !== 0);
+            if(body.players.length !== 0){
               this.HighestMMR(body, (player) => {
                 callback(player);
               });
@@ -19,7 +20,7 @@ class Api{
         } else if (server !== undefined && race === undefined) { // b is undefined
             this.request('http://sc2unmasked.com/API/Player?q=' + profile + '&server=' + server, { json: true }, (err, res, body) => {
             if (err) { console.log(err); }
-            if(body !== undefined){
+            if(body.players.length !== 0){
               this.HighestMMR(body, (player) => {
                 callback(player);
               });
@@ -28,7 +29,7 @@ class Api{
         } else if (server !== undefined && race !== undefined) { // both have values
             this.request('http://sc2unmasked.com/API/Player?q=' + profile + '&server=' + server + '&race=' + race, { json: true }, (err, res, body) => {
             if (err) { console.log(err); }
-            if(body !== undefined){
+            if(body.players.length !== 0){
               this.HighestMMR(body, (player) => {
                 callback(player);
               });
@@ -39,21 +40,18 @@ class Api{
 
     async HighestMMR(data, callback){
       var mmr = 0;
+      var name, race, league, server, player;
       for (var i = 0; i < data.players.length; i++){
           if(data.players[i].mmr > mmr){
-            try{
-              this.Player = require('./Player')
-              var name = data.players[i].display_name;
-              var race = data.players[i].race;
-              mmr = data.players[i].mmr;
-              var league = data.players[i].league;
-              var server = data.players[i].server;
-              var player = new this.Player(name, race, mmr, league, server);
-            } catch (ex){
-              console.log(ex);
-            }
+            name = data.players[i].display_name;
+            race = data.players[i].race;
+            mmr = data.players[i].mmr;
+            league = data.players[i].league;
+            server = data.players[i].server;
           }
       }
+      this.Player = require('./Player')
+      player = new this.Player(name, race, mmr, league, server);
       callback(player);
   }
 
