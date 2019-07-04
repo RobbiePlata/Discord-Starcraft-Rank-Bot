@@ -39,18 +39,21 @@ class Api{
     }
 
     async HighestMMR(data, callback){
-      var mmr = 0;
-      var name, race, league, server, player;
+      var name, race, mmr = 0, league, server, player;
       for (var i = 0; i < data.players.length; i++){
           if(data.players[i].mmr > mmr){
             name = data.players[i].display_name;
+            console.log(data.players[i].display_name);
+            if(data.players[i].display_name === null){
+              name = data.players[i].acc_name;
+            }
             race = data.players[i].race;
             mmr = data.players[i].mmr;
             league = data.players[i].league;
             server = data.players[i].server;
           }
       }
-      this.Player = require('./Player')
+      this.Player = require('./Player');
       player = new this.Player(name, race, mmr, league, server);
       callback(player);
   }
