@@ -40,3 +40,7 @@ Deploy the bot to heroku:
 ## Author
 
 * **Robert Plata** - [Robert Plata](https://github.com/robbieplata)
+
+## Acknowledgements
+
+* **The guy who created woos_bot**
