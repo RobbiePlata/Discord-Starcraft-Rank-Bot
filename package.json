@@ -1,0 +1,22 @@
+{
+  "name": "discord-starcraft-rank-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobbiePlata/Discord-Starcraft-Rank-Bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RobbiePlata/Discord-Starcraft-Rank-Bot/issues"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "homepage": "https://github.com/RobbiePlata/Discord-Starcraft-Rank-Bot#readme"
+}
