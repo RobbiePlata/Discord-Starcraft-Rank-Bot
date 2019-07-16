@@ -18,5 +18,8 @@
   "engines": {
     "node": "12.x"
   },
-  "homepage": "https://github.com/RobbiePlata/Discord-Starcraft-Rank-Bot#readme"
+  "homepage": "https://github.com/RobbiePlata/Discord-Starcraft-Rank-Bot#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
 }
