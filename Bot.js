@@ -3,9 +3,21 @@ const Config = require('./Config.json');
 const token = Config.Discord.Token;
 const api = require('./Api');
 
+const express = require('express')
+const path = require('path')
+const PORT = process.env.PORT || 5000
+
 var client;
 ClientHolder.init(token);
 var client = ClientHolder.getClient();
+
+
+express()
+  .use(express.static(path.join(__dirname, 'public')))
+  .set('views', path.join(__dirname, 'views'))
+  .set('view engine', 'ejs')
+  .get('/', (req, res) => res.render('pages/index'))
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
 
 client.on('ready', () => {
