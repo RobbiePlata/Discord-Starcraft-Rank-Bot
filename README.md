@@ -33,14 +33,6 @@ https://discordapp.com/oauth2/authorize?client_id=&scope=bot&permissions=8
 Node bot.js
 ```
 
-## Server Deployment
-
-
-Deploy the bot to heroku:
-```
-
-```
-
 ## Built With
 
 * [Node.js](https://nodejs.org/en/)
