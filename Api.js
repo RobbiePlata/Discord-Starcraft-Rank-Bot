@@ -9,7 +9,6 @@ class Api{
         if (server === undefined && race === undefined) { // a, b are undefined
             this.request('http://sc2unmasked.com/API/Player?q=' + profile, { json: true }, (err, res, body) => {
             if (err) { console.log(err); }
-            console.log(body.players.length !== 0);
             if(body.players.length !== 0){
               this.HighestMMR(body, (player) => {
                 callback(player);
