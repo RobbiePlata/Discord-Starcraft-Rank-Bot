@@ -32,7 +32,7 @@ setInterval(function() {
 // Listen
 client.on('ready', () => {
     console.log("Bot connected");
-}); 
+});     
 
 // Message Detection
 client.on('message', (msg) => {
@@ -44,14 +44,14 @@ client.on('message', (msg) => {
         if(message.length === 1){
             (async() => {
                 api.GetProfile(msg.author.username, message[2], message[3], (player) => {
-                    client.channels.find(x => x.name === msg.channel.name).send(player.toString());
+                    msg.channel.send(player.toString());
                 }); 
             })();
         }
         if(message.length >= 2){
             (async() => {
                 api.GetProfile(message[1], message[2], message[3], (player) => {
-                    client.channels.find(x => x.name === msg.channel.name).send(player.toString());
+                    msg.channel.send(player.toString());
                 }); 
             })();
         }
