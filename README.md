@@ -28,7 +28,8 @@ npm install
 https://discordapp.com/oauth2/authorize?client_id=&scope=bot&permissions=8
 ```
 4. Authorize the bot under your preferred server. (Administrator required) <br>
-5. Run the bot. <br>
+5. Edit Config file, enter the discord bot's token into field.
+6. Run the bot. <br>
 ```
 Node bot.js
 ```
