@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="myStyle.css" />
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+
+	
+	<nav>
+		<div class="sixersicons">
+			<img id="logo" src="sixers logo.png" />
+			<img id="overlay" src="overlay.png" />
+		</div>
+		<ul class="nav">
+				<li>
+					<a href="#LandingPage">Home</a>
+				</li>
+				<li>
+					<a href="#InformationalPage">Info</a>
+				</li>
+				<li>
+					<a href="#FormPage">Contact</a>
+				</li>
+				<li>
+					<a href="#PhotoGallery">Photos</a>
+				</li>
+
+</ul>
+	</nav>
+	
+	<div id="LandingPage" class="section">
+		<div class="container">
+				<div class="leftside">
+					
+					<header>
+						<h1>Trust the process</h1>
+					</header>
+					
+					<p>
+						The 76ers have had a rich history, with many of the greatest players in
+						 NBA history having played for the organization, including Wilt Chamberlain,
+						 Hal Greer, Billy Cunningham, Julius Erving, Moses Malone, Charles Barkley, and Allen Iverson.
+						 They have won three NBA championships, with their first coming as the Syracuse Nationals in 1955.
+						 The second title came in 1967, a team which was led by Chamberlain. The third title came in 1983,
+						 won by a team led by Erving and Malone. The 76ers have only been back to the NBA Finals once since then: in 2001,
+						 where they were led by Iverson and lost to the Los Angeles Lakers in five games.
+					</p>
+				
+				</div>
+				
+				<div class="rightside">
+					<div class="videoWrapper">
+						<iframe src="https://www.youtube.com/embed/HMQJJaUDav0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					</div>
+				</div>
+
+			
+		</div>
+	</div>
+	
+	<div id="InformationalPage">
+		<div class="container">
+			<div class="leftside">
+				<h1>Joel Embiid</h1>
+				<p>
+				(JoJo, The Process)
+				Position: Center ▪ Shoots: Right
+				7-0, 250lb (213cm, 113kg)
+				</p>
+				<p>
+					Embiid was born in Yaoundé, Cameroon. 
+					Embiid was discovered at a basketball camp by Luc Mbah a Moute, a fellow native of Yaounde and an NBA player.
+					On 9 April 2014, Embiid declared for the 2014 NBA draft, forgoing his final three years of college eligibility.
+				</p>
+				<img id="embiid" src="embiid.png" />
+			</div>
+			<div class="middle">
+				
+				<h1>Ben Simmons</h1>
+				<p>
+					(Fresh Prince, Benny, The Yank, Big Ben, The Wizard of Oz)
+					Position: Point Guard ▪ Shoots: Left
+					6-10, 230lb (208cm, 104kg)
+				</p>
+				<p>
+					Simmons played college basketball for one season with the Louisiana State University (LSU) Tigers, 
+					when he was named a consensus first-team All-American and the USBWA National Freshman of the Year. 
+					He was selected with the first overall pick in the 2016 NBA draft by the 76ers.
+				</p>
+				<img id="simmons"src="simmons.png" />
+			</div>
+			<div class="rightside">
+				<h1>Jimmy Butler</h1>
+				<p>
+					(Jimmy G. Buckets)
+					Position: Small Forward and Shooting Guard ▪ Shoots: Right
+					6-8, 232lb (203cm, 105kg)
+				</p>
+				<p>
+					He was drafted with the 30th overall pick in the 2011 NBA draft by the Chicago Bulls. 
+					Butler is a four-time NBA All-Star, a four-time NBA All-Defensive Team honoree, and a two-time All-NBA Team honoree.
+					In 2019 Butler was traded to the 76ers.
+				</p>
+				<img id="butler" src="butler.png" />
+			</div>
+		</div>
+	</div>
+
+	<div id="FormPage">
+		<div class="container">
+			<form class=”form” method="post" action=”http://www.temple.edu/cgi-bin/mail?tuf82072@temple.edu” >
+				<div class="contact">
+					<div class="form-title-row">
+						<h1>Contact</h1>
+					</div>
+					<div class="form-row">
+						<label>
+							<span>Full name</span>
+							<input required type="text" name="name">
+						</label>
+					</div>
+
+					<div class="form-row">
+						<span>Email</span>
+						<input required type="text" name="email">
+					</div>
+					<div class="form-row">
+						<span>Favorite Player</span>
+						<input required type="text" name="favoriteplayer">
+					</div>
+					<div class="form-row">
+						<span>Best Player</span>
+						<input required type="text" name="bestplayer">
+					</div>
+					<div class="form-row">
+						<span>Hardest Worker</span>
+						<input required type="text" name="hardestworker">
+					</div>
+					<div class="form-row">
+						<span>Least valuable player</span>
+						<input required type="text" name="leastvaluable">
+					</div>
+					<div class="form-row">
+						<span>Who should the sixers pick up next?</span>
+						<input required type="text" name="pickup">
+					</div>
+					<div class="form-row">
+						<span>What is your favorite jersey color?</span>
+						<input required type="text" list="favoriteJerseyColor">
+						<datalist required id="favoriteJerseyColor">
+							<option value="blue" label="blue" />
+							<option value="red" label="red" />
+							<option value="white" label="white" />
+						</datalist>
+					</div>
+					<div class="form-row">
+						<span>Is this a championship team?<br>
+							<label>yes<input required type="radio" value="yes" name="championship"></label>
+							<label>no<input required type="radio" value="no" name="championship"></label>
+						</span>
+					</div>
+					<div class="form-row">
+						<button type="submit">Submit Form</button>
+					</div>
+				</div>
+				
+				
+
+			</form>
+		</div>
+	</div>
+
+	<div id="PhotoGallery">
+		<div class="container">
+			<div class="topLeft">
+				<img id="img1" src="img1.jpg" />
+			</div>
+			<div class="topMiddle">
+				<img id="img2" src="img2.jpg" />
+			</div>
+			<div class="topRight">
+				<img id="img3" src="img3.jpg" />
+			</div>
+			<div class="bottomLeft">
+				<img id="img4" src="img4.jpg" />
+			</div>
+			<div class="bottomMiddle">
+				<img id="img5" src="img5.jpg" />
+			</div>
+			<div class="bottomRight">
+				<img id="img6" src="img6.jpg" />
+			</div>
+		</div>
+	</div>
+
+		<footer>
+			<p>
+				Robert Plata<a href="mailto:tuf82072@temple.edu">tuf82072@temple.edu</a>
+			</p>
+		</footer>
+
+	</div>
+
+</body>
+</html>

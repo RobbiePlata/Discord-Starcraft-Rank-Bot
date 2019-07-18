@@ -1,0 +1,476 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'myFirstFont', Arial;
+	color: black;
+	font-size: 18px;
+}
+
+.section{
+	border-top: solid;
+	border-width: 3px;
+	border-color: white;
+}
+
+li{
+	padding:0;
+}
+
+a {
+   display:block;
+}
+
+.sixersicons{
+	position:absolute;
+	width: 5em;
+	height: 5em;
+}
+
+#logo{
+	width: 100%;
+	height: 100%;
+}
+
+#overlay{
+	width:100%;
+	height:100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	transition: .5s ease;
+}
+
+.sixersicons:hover #overlay {
+  opacity: 1;
+}
+
+header{
+	width: 45em;
+}
+
+.leftside{
+	float: left;
+	width: 48%;
+}
+
+.leftside header{
+	padding-left: 20%;
+}
+
+
+#LandingPage .leftside p{
+	height: 300px;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+#LandingPage .rightside{
+	float: right;
+	width: 48%;
+}
+
+.videoWrapper {
+	height:100%;
+	margin-top: 0em;
+	margin-right:5em;
+	margin-left:5em;
+	display: block;
+    padding-bottom: 56.25%; /* 16:9 */
+}
+
+.videoWrapper iframe {
+	padding-top:5em;
+    position: absolute;
+	height: 18em;
+	width: 32em;
+}
+
+#LandingPage{
+	padding-top:2em;
+	color: white;
+	background-color: #ED174C;
+	height: 52em;
+}
+
+#InformationalPage{
+	outline: 2px solid white;
+	clear:both;
+	overflow:hidden;
+	color: white;
+	background-color: #003DA6	;
+	height: 52em;
+}
+
+#InformationalPage .leftside{
+	outline: 1px solid white;
+	padding-left: 2%;
+	padding-right: 2%;
+	float:left;
+	width: 29.33%;
+	height: 52em;
+}
+
+#InformationalPage .middle{
+	outline: 1px solid white;
+	padding-left: 2%;
+	padding-right: 2%;
+	float:left;
+	width: 29.33%;
+	height: 52em;
+}
+
+#InformationalPage .rightside{
+	outline: 1px solid white;
+	height:30em;
+	padding-left: 2%;
+	padding-right: 2%;
+	float:left;
+	width: 29.33%;
+	height: 52em;
+}
+
+#InformationalPage .leftside h1{
+	text-align: left;
+}
+
+#InformationalPage .leftside p{
+	text-align: left;
+}
+
+#FormPage{
+	color: white;
+	background-color: #ED174C;
+	height: 52em;
+}
+
+#InformationalPage h1{
+	padding-top:2em;
+	text-align:left;
+	font-size: 24px;
+}
+
+#InformationalPage p{
+	text-align:left;
+}
+
+#FormPage p{
+	padding: 1em;
+	margin:0;
+}
+
+#embiid{
+	height: 70%;
+	width: 90%;
+}
+#simmons{
+	height: 70%;
+	width: 80%;
+}
+#butler{
+	height: 40%;
+	width: 60%;
+}
+
+.contact{
+	padding-top: 8%;
+	height: 43.5em;
+}
+
+
+#LandingPage h1{
+	color: white;
+}
+
+.container .topLeft{
+	width: 33.3%;
+	display:block;
+	height: 25em;
+	float:left;
+}
+.container .topMiddle{
+	width: 33.3%;
+	display:block;
+	height: 25em;
+	float:left;
+}
+.container .topRight{
+	width: 33.3%;
+	display:block;
+	height: 25em;
+	float:left;
+}
+.container .bottomLeft{
+	width: 33.3%;
+	display:block;
+	height: 25em;
+	float:left;
+}
+.container .bottomMiddle{
+	width: 33.3%;
+	display:block;
+	height: 25em;
+	float:left;
+}
+.container .bottomRight{
+	width: 33.3%;
+	display:block;
+	height: 25em;
+	float:left;
+}
+
+#PhotoGallery{
+	outline: 3px solid white;
+	height:50em;
+	background-color: #003DA6;
+	color: #BB9754;
+}
+
+#img1{
+	outline: 3px solid white;
+	margin-top: 5%;
+	margin-left: 10%;
+	height:80%;
+	width:80%;
+}
+
+#img2{
+	outline: 3px solid white;
+	margin-top: 5%;
+	margin-left:10%;
+	height:80%;
+	width:80%;
+}
+
+#img3{
+	outline: 3px solid white;
+	margin-top: 5%;
+	margin-left: 10%;
+	height:80%;
+	width:80%;
+}
+
+#img4{
+	outline: 3px solid white;
+	margin-top: 5%;
+	margin-left:10%;
+	height:80%;
+	width:80%;
+}
+
+#img5{
+	outline: 3px solid white;
+	margin-top: 5%;
+	margin-left:10%;
+	height:80%;
+	width:80%;
+}
+
+#img6{
+	outline: 3px solid white;
+	margin-top: 5%;
+	margin-left:10%;
+	height:80%;
+	width:80%;
+}
+
+.form-title-row h1{
+	text-align: left;
+	margin:0;
+	padding: 4%;
+}
+
+.contact input{
+    display: block;
+    text-align: left;
+}
+
+
+.form-row{
+	float: left;
+	text-align: left;
+	margin-left: 5%;
+	margin-bottom: 10%;
+}
+
+.contact{
+	text-align:left;	
+}
+
+.container{
+	height: 100%;
+	width: 100%;
+}
+
+nav{
+	position:fixed;
+	width:100%;
+	outline: 2px solid white;
+}
+
+.nav{
+	list-style:none;
+	margin:0;
+	padding:0;
+	background-color: #003DA6;
+	margin: 0;
+	text-align: center;
+}
+
+li > ul{
+	padding:0;
+}
+
+.nav > li:hover{
+	background-color: #ED174C;
+	font-weight: lighter;
+	color: white;
+}
+
+.nav li{
+	color: white;
+	font-size: 18px;
+	font-weight: lighter;
+	display: inline-block;
+	padding: 10px;
+}
+
+.nav li a{
+	text-decoration: none;
+	color: inherit;
+}
+
+div{
+	display: block;
+}
+
+footer{
+	position: relative;
+	bottom: 0px;
+	text-align: center;
+	width: 100%;
+}
+
+
+@media screen and (max-width: 630px){
+	
+	.sixersicons{
+		margin: 30px;
+		position: absolute;
+		right: 0px;
+		width: 5em;
+		height: 5em;
+	}
+
+	#LandingPage {
+		padding-top:9em;
+		height: 45em;
+	}
+	.container .topLeft {
+		overflow: hidden;
+		width: 100%;
+		display: block;
+	}
+	.container .topMiddle{
+		overflow: hidden;
+		width: 100%;
+		display: block;
+	}
+	.container .topRight{
+		overflow: hidden;
+		width: 100%;
+		display: block;
+	}
+	.container .bottomLeft{
+		overflow: hidden;
+		width: 100%;
+		display: block;
+	}
+	.container .bottomMiddle{
+		overflow: hidden;
+		width: 100%;
+		display: block;
+	}
+	.container .bottomRight{
+		overflow: hidden;
+		width: 100%;
+		display: block;
+	}
+
+	#InformationalPage {
+		height: 140em;
+	}
+
+	#InformationalPage h1{
+		text-align:left;
+		font-size: 24px;
+	}
+
+	#InformationalPage p{
+		text-align:left;
+	}
+
+	#InformationalPage .leftside{
+		overflow:hidden;
+		width:100%;
+		display: block;
+	}
+
+	#InformationalPage .middle{
+		overflow:hidden;
+		width:100%;
+		display: block;
+	}
+
+	#InformationalPage .rightside{
+		overflow:hidden;
+		width:100%;
+		display: block;
+	}
+
+	#FormPage {
+		height: 45em;
+	}
+
+	#PhotoGallery {
+		height: 150em;
+	}
+	
+	.nav{
+		text-align:left;
+	}
+
+	.nav > li {
+		display: block;
+	}
+
+	.leftside{
+		float:none;
+		width:100%;
+	}
+
+	#LandingPage .rightside{
+		float: left;
+	}
+
+	.videoWrapper{
+		width: 100%;
+	}
+
+	.videoWrapper iframe{
+		padding-top:0px;
+		width: 24em;
+		height: 13.5em;
+	}
+
+
+
+}
+
+
