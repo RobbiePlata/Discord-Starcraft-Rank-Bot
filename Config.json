@@ -4,6 +4,6 @@
     },
     "Heroku" : {
         "url": "http://discord-mmr-bot.herokuapp.com/",
-        "index": "pages/index"
+        "index": "index"
     }
 }

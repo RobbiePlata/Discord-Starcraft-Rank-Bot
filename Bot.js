@@ -14,8 +14,8 @@ var client = ClientHolder.getClient();
 // Host Application and optionally render html page
 if(Config.Heroku.url !== null || Config.Heroku.url !== ""){
     express()
-    .use(express.static(path.join(__dirname, 'public')))
-    .set('views', path.join(__dirname, 'views'))
+    //.use(express.static(path.join(__dirname, 'public')))
+    .set('pages', path.join(__dirname, 'pages'))
     .set('view engine', 'ejs')
     .get('/', (req, res) => res.render(Config.Heroku.index))
     .listen(PORT, () => console.log(`Listening on ${ PORT }`))
