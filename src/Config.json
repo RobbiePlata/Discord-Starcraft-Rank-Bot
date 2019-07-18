@@ -1,6 +1,6 @@
 {
     "Discord" : {
-        "Token": "NjAxNDcxMDQ5MTYyMjkzMjQ4.XTC1XA.TqvJoQPrVeG_mBH6S4IaD1I-e-o"
+        "Token": ""
     },
     "Heroku" : {
         "url": "http://discord-mmr-bot.herokuapp.com/",
