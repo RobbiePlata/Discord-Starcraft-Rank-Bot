@@ -22,7 +22,7 @@ if(Config.Heroku.url !== null || Config.Heroku.url !== ""){
 }
 
 // Ping Heroku to not time it out (Needed for free heroku server use)
-var http = require("https");
+var http = require("http");
 setInterval(function() {
     if(Config.Heroku.url !== null || Config.Heroku.url !== ""){
         http.get(Config.Heroku.url);   
