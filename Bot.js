@@ -18,7 +18,7 @@ if(Config.Heroku.url !== null || Config.Heroku.url !== ""){
     .set('views', path.join(__dirname, 'views'))
     .set('view engine', 'ejs')
     .get('/', (req, res) => res.render(Config.Heroku.index))
-    .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+.listen(PORT, () => console.log(`Listening on ${ PORT }`))
 }
 
 // Ping Heroku to not time it out (Needed for free heroku server use)
