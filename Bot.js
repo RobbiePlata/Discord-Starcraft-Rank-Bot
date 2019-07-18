@@ -19,6 +19,10 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
+  var https = require("https");
+  setInterval(function() {
+      http.get("http://discord-mmr-bot.herokuapp.com/");   
+  }, 300000); // every 5 minutes (300000)
 
 client.on('ready', () => {
     console.log("Bot connected");
