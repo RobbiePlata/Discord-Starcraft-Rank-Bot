@@ -11,25 +11,30 @@ var client;
 ClientHolder.init(token);
 var client = ClientHolder.getClient();
 
-
-express()
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-
+// Host Application and optionally render html page
+if(Config.Heroku.url !== null || Config.Heroku.url !== ""){
+    express()
+    .use(express.static(path.join(__dirname, 'public')))
+    .set('views', path.join(__dirname, 'views'))
+    .set('view engine', 'ejs')
+    .get('/', (req, res) => res.render(Config.Heroku.index))
+    .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+}
 
 // Ping Heroku to not time it out (Needed for free heroku server use)
 var http = require("https");
 setInterval(function() {
-    http.get("http://discord-mmr-bot.herokuapp.com/");   
+    if(Config.Heroku.url !== null || Config.Heroku.url !== ""){
+        http.get(Config.Heroku.url);   
+    }
 }, 300000); // every 5 minutes (300000)
 
+// Listen
 client.on('ready', () => {
     console.log("Bot connected");
 }); 
 
+// Message Detection
 client.on('message', (msg) => {
     var message = msg.content.split(' ');
     console.log(msg.channel.name);
