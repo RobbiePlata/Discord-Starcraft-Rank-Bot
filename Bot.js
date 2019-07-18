@@ -19,10 +19,12 @@ express()
   .get('/', (req, res) => res.render('pages/index'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
 
-  var https = require("https");
-  setInterval(function() {
-      http.get("http://discord-mmr-bot.herokuapp.com/");   
-  }, 300000); // every 5 minutes (300000)
+
+// Ping Heroku to not time it out (Needed for free heroku server use)
+var http = require("https");
+setInterval(function() {
+    http.get("http://discord-mmr-bot.herokuapp.com/");   
+}, 300000); // every 5 minutes (300000)
 
 client.on('ready', () => {
     console.log("Bot connected");
@@ -31,10 +33,15 @@ client.on('ready', () => {
 client.on('message', (msg) => {
     var message = msg.content.split(' ');
     console.log(msg.channel.name);
+    console.log(msg.author.username);
     console.log(message.join(" "));
     if (message[0] === '!mmr'){
         if(message.length === 1){
-            client.channels.find(x => x.name === msg.channel.name).send("Search using !mmr name server race");
+            (async() => {
+                api.GetProfile(msg.author.username, message[2], message[3], (player) => {
+                    client.channels.find(x => x.name === msg.channel.name).send(player.toString());
+                }); 
+            })();
         }
         if(message.length >= 2){
             (async() => {
