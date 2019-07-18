@@ -25,9 +25,9 @@ npm install
 2. Under the Bot section, Build a new bot. <br>
 3. Paste the clientid of the bot into this url between "clientid=" and "&" <br>
 ```
-https://discordapp.com/oauth2/authorize?client_id=&scope=bot&permissions=8
+https://discordapp.com/oauth2/authorize?client_id=&scope=bot&permissions=67584
 ```
-4. Authorize the bot under your preferred server. (Administrator required) <br>
+4. Authorize the bot under your preferred server. (Server Owner/Administrator required to add) <br>
 5. Edit Config file, enter the discord bot's token into field.
 6. Run the bot. <br>
 ```
