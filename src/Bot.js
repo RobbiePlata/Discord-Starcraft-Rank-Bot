@@ -38,7 +38,7 @@ client.on('ready', () => {
 client.on('message', (msg) => {
     var message = msg.content.split(' ');
     if (message[0] === '!mmr'){
-        console.log("Server: " + msg.guild.name + " #" + msg.channel.name);
+        console.log("Server: " + msg.guild.name + " #" + msg.channel.name + "Server count: " + client.guilds.size);
         console.log(msg.author.username + ": " + message.join(" "));
         if(message.length === 1){
             (async() => {
