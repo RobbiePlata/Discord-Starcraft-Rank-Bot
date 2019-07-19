@@ -34,13 +34,12 @@ client.on('ready', () => {
     console.log("Bot connected");
 });     
 
-// Message Detection
+// Message Detection and Reply
 client.on('message', (msg) => {
     var message = msg.content.split(' ');
-    console.log(msg.channel.name);
-    console.log(msg.author.username);
-    console.log(message.join(" "));
     if (message[0] === '!mmr'){
+        console.log("Server: " + msg.guild.name + " #" + msg.channel.name);
+        console.log(msg.author.username + ": " + message.join(" "));
         if(message.length === 1){
             (async() => {
                 api.GetProfile(msg.author.username, message[2], message[3], (player) => {

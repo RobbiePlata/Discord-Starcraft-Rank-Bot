@@ -42,7 +42,6 @@ class Api{
       for (var i = 0; i < data.players.length; i++){
           if(data.players[i].mmr > mmr){
             name = data.players[i].display_name;
-            console.log(data.players[i].display_name);
             if(data.players[i].display_name === null){
               name = data.players[i].acc_name;
             }
