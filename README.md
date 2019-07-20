@@ -34,6 +34,8 @@ https://discordapp.com/oauth2/authorize?client_id=&scope=bot&permissions=67584
 Node bot.js
 ```
 
+7. You can deploy it to a server! This bot is Heroku Ready!
+
 ## Built With
 
 * [Node.js](https://nodejs.org/en/)
