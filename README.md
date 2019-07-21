@@ -28,13 +28,13 @@ npm install
 https://discordapp.com/oauth2/authorize?client_id=&scope=bot&permissions=67584
 ```
 4. Authorize the bot under your preferred server. (Server Owner/Administrator required to add) <br>
-5. Edit Config file, enter the discord bot's token into field.
+5. Create .env file in the root folder and enter the discord bot token as TOKEN=123456789.12345789
 6. Run the bot. <br>
 ```
 Node bot.js
 ```
 
-7. You can deploy it to a server! This bot is Heroku Ready!
+7. Deploy it straight to a heroku server
 
 ## Built With
 
