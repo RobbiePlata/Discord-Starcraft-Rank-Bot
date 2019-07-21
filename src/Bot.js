@@ -1,11 +1,11 @@
 const ClientHolder = require('./ClientHolder');
 const Config = require('./Config.json');
-const token = Config.Discord.Token;
 const api = require('./Api');
-
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
+const env = require('dotenv').config();
+const token = process.env.TOKEN;
 
 var client;
 ClientHolder.init(token);
