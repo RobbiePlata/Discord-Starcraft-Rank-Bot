@@ -32,7 +32,10 @@ setInterval(function() {
 // Listen
 client.on('ready', () => {
     console.log("Bot connected");
-});     
+    client.guilds.forEach((guild) => {
+        console.log(guild.name);
+    });
+});
 
 // Message Detection and Reply
 client.on('message', (msg) => {
