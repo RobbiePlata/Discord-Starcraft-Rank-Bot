@@ -41,8 +41,8 @@ client.on('ready', () => {
 // Message Detection and Reply
 client.on('message', (msg) => {
     var message = msg.content.split(' ');
-    console.log("#" + msg.guild.name + " " + msg.author.username + ": " + message.join(" "));
     if (message[0] === '!mmr'){
+        console.log("#" + msg.guild.name + " " + msg.author.username + ": " + message.join(" "));
         if(message.length === 1){
             (async() => {
                 api.GetProfile(msg.author.username, message[2], message[3], (player) => {
