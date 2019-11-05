@@ -3,6 +3,9 @@
 # Discord Starcraft Rank Bot
 using node.js
 
+## Use now
+https://top.gg/bot/601483933661659178
+
 ## Getting Started
 
 ### Prerequisites
