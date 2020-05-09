@@ -1,14 +1,21 @@
 class Player{
-    constructor(name, race, mmr, league, server){
-        this.name = name;
-        this.race = race;
-        this.mmr = mmr;
-        this.league = league;
-        this.server = server;
+    constructor(profile){
+        this.realm= profile.realm,
+        this.region= profile.region,
+        this.rank= profile.rank,
+        this.username= profile.username,
+        this.bnet_id= profile.bnet_id,
+        this.race= profile.race,
+        this.mmr= profile.mmr,
+        this.wins= profile.wins,
+        this.losses= profile.losses,
+        this.clan= profile.clan,
+        this.profile_id= profile.profile_id,
+        this.alias= profile.alias;
     }
 
     GetName(){
-        return this.name;
+        return this.username;
     }
 
     GetRace(){
@@ -20,15 +27,15 @@ class Player{
     }
 
     GetLeague(){
-        return this.league;
+        return this.rank;
     }
 
     GetServer(){
-        return this.server;
+        return this.region;
     }
 
     toString(){
-        return this.GetName() + ' ' + this.GetRace().toUpperCase() + ' ' + this.GetServer().toUpperCase() + ' ' + this.GetMMR() + ' MMR';
+        return this.GetName() + ' '  + this.GetServer().toUpperCase() + ' ' + this.GetLeague() + ' ' + this.GetRace().toUpperCase() + ' ' + this.GetMMR() + ' MMR';
     }
     
 }
