@@ -6,6 +6,7 @@ const path = require('path')
 const PORT = process.env.PORT || 5000
 const env = require('dotenv').config();
 const token = process.env.TOKEN;
+const mydiscordid = process.env.MYDISCORDID;
 
 var client;
 ClientHolder.init(token);
@@ -32,17 +33,15 @@ setInterval(function() {
 // Listen
 client.on('ready', () => {
     console.log("Bot connected");
-    client.guilds.forEach((guild) => {
-        console.log(guild.name);
-    });
-    console.log("Server count: " + client.guilds.size);
 });
 
 // Message Detection and Reply
 client.on('message', (msg) => {
     var message = msg.content.split(' ');
-    if (message[0] === '!mmr'){
-        console.log("#" + msg.guild.name + " " + msg.author.username + ": " + message.join(" "));
+    if (message[0] === '!mmr' && msg.channel.type !== "dm"){
+        if(msg.guild === undefined) {
+            console.log("#" + msg.guild.name + " " + msg.author.username + ": " + message.join(" "));
+        }
         if(message.length === 1){
             (async() => {
                 api.GetProfile(msg.author.username, message[2], message[3], (player) => {
@@ -58,4 +57,18 @@ client.on('message', (msg) => {
             })();
         }
     }
+    if ((message[0] === "!help")){
+        msg.author.send("Hello, " + msg.author.username + " if you are having trouble getting your StarCraft mmr using the !mmr command, please contact norbertedguy@gmail.com");
+    }
+    if(mydiscordid !== undefined) {
+        if((msg.channel.type === "dm" && msg.author.username != client.user.username && msg.author.id != mydiscordid)){
+            if(mydiscordid !== undefined){
+                client.users.get(mydiscordid).send(msg.author + ": " + msg.content.split());
+            }
+        }
+        if((message[0] == "!servers" && msg.channel.type === "dm" && msg.author.id == mydiscordid)){
+            msg.author.send("Server count: " + client.guilds.size);
+        }
+    }
+    
 });
