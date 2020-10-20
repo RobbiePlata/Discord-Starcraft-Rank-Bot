@@ -33,7 +33,23 @@ setInterval(function() {
 // Listen
 client.on('ready', () => {
     console.log("Bot connected");
+    client.user.setStatus("available");
+    client.user.setPresence({
+        game: {
+            name: client.guilds.size + " servers",
+            type: "WATCHING"
+        }
+    });
 });
+
+setInterval(() => {
+    client.user.setPresence({
+        game: {
+            name: client.guilds.size + " servers",
+            type: "WATCHING",
+        }
+    });
+}, 1000 * 60 * 60 * 24);
 
 // Message Detection and Reply
 client.on('message', (msg) => {
@@ -59,16 +75,6 @@ client.on('message', (msg) => {
     }
     if ((message[0] === "!help")){
         msg.author.send("Hello, " + msg.author.username + " if you are having trouble getting your StarCraft mmr using the !mmr command, please contact norbertedguy@gmail.com");
-    }
-    if(mydiscordid !== undefined) {
-        if((msg.channel.type === "dm" && msg.author.username != client.user.username && msg.author.id != mydiscordid)){
-            if(mydiscordid !== undefined){
-                client.users.get(mydiscordid).send(msg.author + ": " + msg.content.split());
-            }
-        }
-        if((message[0] == "!servers" && msg.channel.type === "dm" && msg.author.id == mydiscordid)){
-            msg.author.send("Server count: " + client.guilds.size);
-        }
     }
     
 });
