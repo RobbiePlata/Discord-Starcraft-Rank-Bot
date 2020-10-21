@@ -54,14 +54,14 @@ class Liquipedia {
                     var tournamentname = tournament.printouts["has tournament name"];
                     var url = tournament.printouts["has tournament"][0].fullurl;
                     var matchup = player1 + ' ' + score1 + '-' + score2 + ' ' + player2;
-                    if(player1.length() <= 0 || player2.length() <= 0 || score1.length() <= 0 || score2.length() <= 0 || tournamentname.length() <= 0 || url.length() <= 0){
+                    if(player1.length < 1 || player2.length < 1 || score1.length < 1 || score2.length < 1 || tournamentname.length < 1 || url.length < 1){
                         callback(null)
                     }
                     else{
                         callback([matchup, tournamentname[0], score1, score2, url])
                     }
                 }
-                catch { callback(null) }
+                catch(ex) { console.log(ex); callback(null) }
             }
             if(err) { callback(null) };
         })
