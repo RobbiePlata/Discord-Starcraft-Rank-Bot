@@ -28,7 +28,7 @@ class Liquipedia {
     GetNewMatchup(callback) {
         /* Get Date 15 minutes ago */
         var now = new Date();
-        now.setMinutes(now.getMinutes()-40);
+        now.setMinutes(now.getMinutes()-50);
         now = now.toUTCString().replace('GMT', "0000");
         console.log(now);   
     
@@ -53,14 +53,13 @@ class Liquipedia {
                     var score2 = tournament.printouts["has player right score"];
                     var tournamentname = tournament.printouts["has tournament name"];
                     var url = tournament.printouts["has tournament"][0].fullurl;
-                    var matchup;
-                    if(score1 !== undefined && score2 !== undefined){
-                        matchup = player1 + ' ' + score1 + '-' + score2 + ' ' + player2;
+                    var matchup = player1 + ' ' + score1 + '-' + score2 + ' ' + player2;
+                    if(player1.length() <= 0 || player2.length() <= 0 || score1.length() <= 0 || score2.length() <= 0 || tournamentname.length() <= 0 || url.length() <= 0){
+                        callback(null)
                     }
                     else{
-                        matchup = player1 + ' - ' + player2;
+                        callback([matchup, tournamentname[0], score1, score2, url])
                     }
-                    callback([matchup, tournamentname[0], score1, score2, url])
                 }
                 catch { callback(null) }
             }
