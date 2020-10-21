@@ -1,6 +1,7 @@
 const ClientHolder = require('./ClientHolder');
 const Config = require('./Config.json');
 const api = require('./Api');
+const liquipedia = require('./Liquipedia');
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
@@ -30,27 +31,38 @@ setInterval(function() {
     }
 }, 300000); // every 5 minutes (300000)
 
+
 // Listen
 client.on('ready', () => {
     console.log("Bot connected");
     client.user.setStatus("available");
-    client.user.setPresence({
-        game: {
-            name: client.guilds.size + " servers",
-            type: "WATCHING"
-        }
-    });
+    NewPresence();
 });
 
 setInterval(() => {
-    client.user.setPresence({
-        game: {
-            name: client.guilds.size + " servers",
-            type: "WATCHING",
+    NewPresence();
+}, 1000 * 60 * 60 * (1/6) / 2);
+
+function NewPresence(){
+    liquipedia.GetNewMatchup((arr) => {
+        if (arr !== null){
+            client.user.setPresence({
+                game: {
+                    name: arr[1] + '\n' + arr[0] + '\n' + "!link",
+                    type: "WATCHING"
+                }
+            });
+        }
+        else{
+            client.user.setPresence({
+                game: {
+                    name: client.guilds.size + " servers",
+                    type: "WATCHING"
+                }
+            });
         }
     });
-}, 1000 * 60 * 60 * 24);
-
+}
 // Message Detection and Reply
 client.on('message', (msg) => {
     var message = msg.content.split(' ');
@@ -73,8 +85,11 @@ client.on('message', (msg) => {
             })();
         }
     }
-    if ((message[0] === "!help")){
-        msg.author.send("Hello, " + msg.author.username + " if you are having trouble getting your StarCraft mmr using the !mmr command, please contact norbertedguy@gmail.com");
+    if ((message[0] === "!link")){
+        liquipedia.GetNewMatchup((arr) => {
+            msg.channel.send(arr[4]);
+        });    
     }
+    
     
 });
