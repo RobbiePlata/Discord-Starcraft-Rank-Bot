@@ -87,7 +87,7 @@ client.on('message', (msg) => {
     }
     if ((message[0] === "!link")){
         liquipedia.GetNewMatchup((arr) => {
-            msg.channel.send(arr[4]);
+            msg.channel.send(arr[0] + ' in ' + arr[1] + '\n' + arr[4]);
         });    
     }
     
