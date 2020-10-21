@@ -28,7 +28,7 @@ class Liquipedia {
     GetNewMatchup(callback) {
         /* Get Date 15 minutes ago */
         var now = new Date();
-        now.setMinutes(now.getMinutes()-60);
+        now.setMinutes(now.getMinutes()-40);
         now = now.toUTCString().replace('GMT', "0000");
         console.log(now);   
     
