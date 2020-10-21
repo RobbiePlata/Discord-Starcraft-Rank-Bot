@@ -42,7 +42,7 @@ client.on('ready', () => {
 
 setInterval(() => {
     NewPresence();
-}, 1000 * 60 * 60 * (1/6) / 2);
+}, 1000 * 60 * 60 * (1/6) / 10);
 
 function NewPresence(){
     liquipedia.GetNewMatchup((arr) => {
