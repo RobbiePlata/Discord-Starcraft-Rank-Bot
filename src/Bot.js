@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 5000
 const env = require('dotenv').config();
 const token = process.env.TOKEN;
 const mydiscordid = process.env.MYDISCORDID;
+const email = process.env.EMAIL;
 
 var client;
 ClientHolder.init(token);
@@ -63,6 +64,7 @@ function NewPresence(){
         }
     });
 }
+
 // Message Detection and Reply
 client.on('message', (msg) => {
     var message = msg.content.split(' ');
@@ -90,6 +92,11 @@ client.on('message', (msg) => {
             msg.channel.send(arr[0] + ' in ' + arr[1] + '\n' + arr[4]);
         });    
     }
-    
-    
+        
+});
+
+client.on("guildCreate", guild => {
+    try{
+        guild.owner.send('Thanks for welcoming me to ' + guild.name + '!' + '\n' + 'To use me to the best of my capability type !mmr <name> <server> <race>' + '\n' + 'To keep me running and maintained please consider making a small donation to cover the cost of the server and maintenance! Thank you.\n' + `https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=${email}&item_name=Server+time&currency_code=USD`);
+    } catch(err) { console.log(err) }
 });
