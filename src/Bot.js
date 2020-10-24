@@ -26,6 +26,7 @@ if(Config.Heroku.url !== null || Config.Heroku.url !== ""){
 
 // Ping Heroku to not time it out (Needed for free heroku server use)
 var http = require("http");
+const Liquipedia = require('./Liquipedia');
 setInterval(function() {
     if(Config.Heroku.url !== null || Config.Heroku.url !== ""){
         http.get(Config.Heroku.url);   
@@ -45,11 +46,11 @@ setInterval(() => {
 }, 1000 * 60 * 60 * (1/6) / 10);
 
 function NewPresence(){
-    liquipedia.GetNewMatchup((arr) => {
-        if (arr !== null){
+    liquipedia.GetNewMatchup((result) => {
+        if (result){
             client.user.setPresence({
                 game: {
-                    name: arr[1] + '\n' + arr[0] + '\n' + "!link",
+                    name: liquipedia.tournamentname + '\n' + liquipedia.matchup + '\n' + "!link",
                     type: "WATCHING"
                 }
             });
@@ -88,9 +89,9 @@ client.on('message', (msg) => {
         }
     }
     if ((message[0] === "!link")){
-        liquipedia.GetNewMatchup((arr) => {
-            msg.channel.send(arr[0] + ' in ' + arr[1] + '\n' + arr[4]);
-        });    
+        if (liquipedia.matchup !== undefined){
+            msg.channel.send(Liquipedia.matchup + ' in ' + Liquipedia.tournamentname + '\n' + liquipedia.url);
+        }
     }
         
 });

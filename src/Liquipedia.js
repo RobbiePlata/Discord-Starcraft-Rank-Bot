@@ -1,7 +1,18 @@
+const { match } = require('assert');
 const https = require('https');
 const zlib = require("zlib");
 class Liquipedia {
     
+    constructor(){
+        this.player1;
+        this.player2;
+        this.score1;
+        this.score2;
+        this.tournamentname;
+        this.url;
+        this.matchup;
+    }
+
     getGzipped(url, callback) {
         var buffer = [];
         https.get(url, (res) => {
@@ -55,15 +66,22 @@ class Liquipedia {
                     var url = tournament.printouts["has tournament"][0].fullurl;
                     var matchup = player1 + ' ' + score1 + '-' + score2 + ' ' + player2;
                     if(player1.length < 1 || player2.length < 1 || score1.length < 1 || score2.length < 1 || tournamentname.length < 1 || url.length < 1){
-                        callback(null)
+                        callback(false)
                     }
                     else{
-                        callback([matchup, tournamentname[0], score1, score2, url])
+                        this.player1 = player1;
+                        this.player2 = player2;
+                        this.score1 = score1;
+                        this.score2 = score2;
+                        this.tournamentname = tournamentname;
+                        this.url = url;
+                        this.matchup = matchup;
+                        callback(true)
                     }
                 }
-                catch(ex) { console.log(ex); callback(null) }
+                catch(ex) { console.log(ex); callback(false) }
             }
-            if(err) { callback(null) };
+            if(err) { callback(false) };
         })
     
     }
