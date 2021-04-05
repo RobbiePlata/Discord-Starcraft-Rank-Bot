@@ -2,7 +2,7 @@ class Api{
     
   constructor(){
       this.request = require('request');
-      this.site = "https://www.sc2ladder.com";
+      this.site = "http://www.sc2ladder.com";
       this.Player = require('./Player');
       this.regions = ['US', 'EU', 'KR'];
       this.races = ['P', 'Z', 'T'];
