@@ -12,7 +12,7 @@ class Api{
   async GetProfile(name, str1, str2, callback){
     try {
       var url = this.site + `/api/player?query=${name}&limit=`;
-      this.request(url, { json: true }, (err, res, body) => {
+      this.request({url: url, agentOptions: {rejectUnauthorized: false}, json: true}, (err, res, body) => {
         if (err) { console.log(err); }
         this.MatchProfile(body, name, str1, str2, (player) => {
           callback(player)
