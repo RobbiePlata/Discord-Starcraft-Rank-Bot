@@ -51,7 +51,7 @@ function NewPresence(){
             client.user.setPresence({
                 activity: {
                     name: liquipedia.tournamentname + '\n' + liquipedia.matchup + '\n' + "!link",
-                    type: "WATCHING",
+                    type: "STREAMING",
                     url: liquipedia.url
                 }
             });
