@@ -49,15 +49,16 @@ function NewPresence(){
     liquipedia.GetNewMatchup((result) => {
         if (result){
             client.user.setPresence({
-                game: {
+                activity: {
                     name: liquipedia.tournamentname + '\n' + liquipedia.matchup + '\n' + "!link",
-                    type: "WATCHING"
+                    type: "WATCHING",
+                    url: liquipedia.url
                 }
             });
         }
         else{
             client.user.setPresence({
-                game: {
+                activity: {
                     name: client.guilds.size + " servers",
                     type: "WATCHING"
                 }
