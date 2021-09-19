@@ -59,7 +59,7 @@ function NewPresence(){
         else{
             client.user.setPresence({
                 activity: {
-                    name: client.guilds.size + " servers",
+                    name: client.guilds.cache.size + " servers",
                     type: "WATCHING"
                 }
             });
